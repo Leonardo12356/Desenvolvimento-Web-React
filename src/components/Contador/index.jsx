@@ -32,13 +32,14 @@ const Contador = () => {
             <Botao onClick={() => alterarValor()}>Aumentar</Botao>
             <Botao onClick={() => zerarValor()}>Zerar</Botao>
             <Texto valor={numero} />
-
         </Container>
-    )
+    );
 };
 
+
+// PROP
 const Texto = ({ valor }) => {
-    return (<span>{valor}</span>)
+    return (<span>{valor}</span>);
 }
 
 export default Contador;
