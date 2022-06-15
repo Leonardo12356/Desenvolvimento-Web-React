@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "@mui/material";
 
 export const Titulo = styled.h3`
  font-size: 20px;
@@ -22,4 +23,12 @@ border-radius: 5px;
 
 export const MensagemErro = styled.p`
     color: red;
+`;
+
+export const BotaoZerar = styled(Button)` // estiliza padrão que não e html
+&&{
+width: 73px;
+height: 31px;
+margin-right: 10px;
+}
 `;
