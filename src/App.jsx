@@ -12,24 +12,26 @@ function App() {
   const { temaSelecionado } = useContext(TemaContext);
   const tema = {
     claro: {
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
+      color: "#363535"
     },
     escuro: {
-      backgroundColor: '#363535'
-    }
+      backgroundColor: '#363535',
+      color: "#fff"
+    },
   }
 
   return (
     <div className='container' style={tema[temaSelecionado]}>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ArmazemSerratec />} />
-          <Route path="alunos" element={<Alunos />} />
-          <Route path="/materias">
-            <Route path="cadastro" element={<CadastroMaterias />} />
-            <Route path="listagem" element={<ListagemMaterias />} />
-          </Route>
-        </Routes>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<ArmazemSerratec />} />
+        <Route path="alunos" element={<Alunos />} />
+        <Route path="/materias">
+          <Route path="cadastro" element={<CadastroMaterias />} />
+          <Route path="listagem" element={<ListagemMaterias />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
