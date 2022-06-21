@@ -11,12 +11,11 @@ import { TemaContext } from '../../context';
 
 const NavBar = () => {
     const { temaSelecionado, setTemaSelecionado } = useContext(TemaContext);
+    
     const alterarTema = () => {
-        if (temaSelecionado === "claro") {
-            setTemaSelecionado("escuro")
-        } else {
-            setTemaSelecionado("claro")
-        }
+        const temaAux = temaSelecionado === "claro" ? "escuro" : "claro";
+        localStorage.setItem("temaSelecionado", temaAux);
+        setTemaSelecionado(temaAux)
     }
     
 

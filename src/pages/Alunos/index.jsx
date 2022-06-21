@@ -11,11 +11,15 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import carregandoAnimacao from '../../animations/loading.json';
+import styled from 'styled-components';
+import { useContext } from 'react';
+import { TemaContext } from '../../context';
 
 
 const Alunos = () => {
     const [alunos, setAlunos] = useState([]);
     const [carregando, setCarregando] = useState(true);
+    const { temaSelecionado } = useContext(TemaContext);
 
     const defaultOptions = {
         loop: true,
@@ -46,6 +50,13 @@ const Alunos = () => {
         }
     }, [alunos]);
 
+    const TableEstilizada = styled(TableContainer)`
+        table {
+            background-color: ${(props) =>
+            props.tema === "claro" ? "blue" : "green"};
+        }
+    `;
+
     return (
         <>
            
@@ -57,7 +68,7 @@ const Alunos = () => {
                         height={400}
                         width={400} speed={2}
                       />) : (
-                        <TableContainer component={Paper} sx={{ mt: 3 }}>
+                        <TableEstilizada component={Paper} sx={{ mt: 3 }} tema={temaSelecionado}>
                             <Table size="small" aria-label="a dense table">
                                 <TableHead>
                                     <TableRow>
@@ -79,7 +90,7 @@ const Alunos = () => {
                                     ))}
                                 </TableBody>
                             </Table>
-                        </TableContainer>
+                        </TableEstilizada>
                     )
                 }
 
